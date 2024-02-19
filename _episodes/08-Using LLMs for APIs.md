@@ -106,6 +106,7 @@ You can also paste in a block of JSON/XML response from an API request to GPT4 a
 <DbTo>bioproject</DbTo>
 </Link>
 </note>
+```
 
 ## Resolving Errors
 Sometimes you can receive error codes from an API request. LLMs like GPT-4 can help you understand and resolve these errors.
