@@ -77,7 +77,7 @@ Let's query our cognitive co-pilot!
 ## Understanding API Responses
 You can also paste in a block of JSON/XML response from an API request to GPT4 and ask it to describe it for you.
 
-```xml
+
 ...
 <Field>
 <Name>P1DAT</Name>
@@ -104,8 +104,7 @@ You can also paste in a block of JSON/XML response from an API request to GPT4 a
 <Description>Related Projects</Description>
 <DbTo>bioproject</DbTo>
 </Link>
-...
-```
+
 
 ## Resolving Errors
 Sometimes you can receive error codes from an API request. LLMs like GPT-4 can help you understand and resolve these errors.
