@@ -3,19 +3,19 @@ title: "Using LLMs for APIs"
 teaching: 15
 exercises: 5
 questions:
-- "What is an API?"
-- "Why do we need APIs?"
-- "How APIs work?"
+- "How do LLMs help with API queries?"
+- "Can LLMs clarify API documentation?"
+- "How do LLMs aid in fixing API errors?"
+- "Can LLMs translate code for API tasks?"
 objectives:
-- "Understand the need for an API."
-- "Understand the main components of an API."
-- "Familiarity using Library APIs."
+- "Understand how LLMs like GPT-4 can assist in formulating and refining API queries."
+- "Explore the potential of LLMs in interpreting API documentation and providing insights into query parameters and valid input values."
+- "Learn how to leverage LLMs for troubleshooting API errors and translating code snippets for effective API utilization."
 keypoints:
-- "An API is a way for two or more computer programs or components to communicate with each other."
-- "HTTP is the protocol originally designed for requesting and receiving Web pages, but now also used as the basis for a variety of APIs. HTTPS is the encrypted version of HTTP."
-- "Every page on the world wide web is identified with a URL or Uniform Resource Locator."
-- "A request is how you tell a server what you want to see. A response will either give you what you asked for, or tell you why the server can't do that. Both requests and responses have a header, and optionally a body."
-- "We can make requests and receive responses, as well as see their headers, using `curl`."
+- "LLMs can guide the creation of API queries, though their effectiveness depends on their familiarity with the specific API and its parameters."
+- "LLMs have the potential to clarify ambiguities in API documentation and suggest valid input values, enhancing understanding and usage of APIs."
+- "LLMs can offer explanations for API error codes and assist in translating code snippets between languages, aiding in debugging and code adaptation."
+- "Despite their capabilities, LLMs' knowledge is limited to their training data, necessitating caution and verification against up-to-date, official API documentation."
 ---
 LLMs like GPT-4 can understand and generate text based on patterns learned from their training data. If an API's query parameters or the concept of valid input values have been discussed in the data the model was trained on, the model might be able to provide general guidance based on that information.
 
