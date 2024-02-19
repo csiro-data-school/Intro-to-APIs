@@ -128,3 +128,13 @@ Next, we will explore how data is managed and transmitted over the web, which co
 >
 > While this seems entirely obvious and second-nature today, it was revolutionary when it was first introduced, hence the name appearing prominently in technologies that supported it.
 {: .callout}
+
+
+## Web APIs like OpenAI's API
+- Remote Resources: Web APIs are hosted on remote servers. Applications interact with these APIs over the network, usually via HTTP requests.
+- Complex Operations: Web APIs often expose functionality that would be impractical to implement locally, either due to the complexity of the operations or the need for access to large, constantly updated datasets. OpenAI's API, for instance, provides access to advanced AI models trained on vast amounts of data.
+- Latency and Scalability: Calls to web APIs are subject to network latency and depend on the API provider's infrastructure for scalability and performance. This can introduce delays but also offers capabilities far beyond what could be locally hosted.
+- Examples: OpenAI for AI-powered text generation, Google Maps API for map-related features, Twitter API for social media interactions.
+Comparison in the Context of Your Example
+
+The OpenAI API leverages the cloud-hosted GPT models to generate chat completions, a task requiring significant computational resources and access to a pre-trained model.

@@ -93,7 +93,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 > - The results contain cold urticaria in the title
 >
 >>## Solution
->>1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term=cold+urticaria&field=title&sort=pub+date
+>>1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=cold+urticaria&sort=pub_date
 >{: .solution}
 {: .challenge}
 
@@ -109,34 +109,4 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 >{: .solution}
 {: .challenge}
 
->## Perform a search across all Entrez databases
-> Perform a global Entrez search to determine racial/ethnic representation across database contents. 
-> 1. Identify which E-utility to use for this task.
-> 2. Identify how you will conceptualize and categorize racial/ethnic groupings for this task.
-> - NIH racial and ethnic categories include American Indian or Alaska Native, Asian, Black or African American, Hispanic or Latino, Native Hawaiian or Other Pacific Islander, and White. [See NOT-OD-15-089](https://grants.nih.gov/grants/guide/notice-files/not-od-15-089.html) for more details.
-> 3. Write and run the API strings that would enable you to uncover these representations. 
->
->>## Solution
->> Here is an example of API calls that could provide you with summary data based on NIH racial and ethnic categories. (There are many potential solutions to this exercise!) 
->>1. https://eutils.ncbi.nlm.nih.gov/gquery?term=african+AND+black&retmode=xml
->>2. https://eutils.ncbi.nlm.nih.gov/gquery?term=white&retmode=xml
->>3. https://eutils.ncbi.nlm.nih.gov/gquery?term=hispanic+OR+latino&retmode=xml
->>4. https://eutils.ncbi.nlm.nih.gov/gquery?term=native+hawaiian+OR+pacific+islander&retmode=xml
->{: .solution}
-{: .challenge}
-
->## Design your own research question
-> Develop a research question about databases included in Entrez, or about the data held within the databases.
-> Review the table of E-utilities, their query strings, and use cases above.
-> - Please share your research question in the class etherpad in the designated section. 
-> 1. Which E-utilitiy would provide you with the type of data you could use to answer your question?
-> 2. Which databases would you need to query with your choses E-utility in order to answer your research question?
-> 3. Try writing the APIs that would provide you with the data that would answer your research question!
->
->>## Solution
->>- Did it work?
->>1. If it worked, please share your API calls in the etherpad by your research question.
->>2. If it did not work, consider if the problem is conceptual or technical and share your thoughts in the eatherpad near your research question.  
->{: .solution}
-{: .challenge}
 

@@ -17,41 +17,102 @@ keypoints:
 - "A request is how you tell a server what you want to see. A response will either give you what you asked for, or tell you why the server can't do that. Both requests and responses have a header, and optionally a body."
 - "We can make requests and receive responses, as well as see their headers, using `curl`."
 ---
-LLMs like ChatGPT can understand and generate text based on patterns learned from their training data. If an API's query parameters or the concept of valid input values have been discussed in the data the model was trained on, ChatGPT might be able to provide general guidance based on that information.
+LLMs like GPT-4 can understand and generate text based on patterns learned from their training data. If an API's query parameters or the concept of valid input values have been discussed in the data the model was trained on, the model might be able to provide general guidance based on that information.
 
 However, LLMs do not have real-time access to external databases or the internet, and they cannot interact with APIs directly to fetch or verify current data. Their knowledge is based on the information available up to their last training cut-off, which means they might not have data on newly developed APIs or recent changes to existing ones.
 
 Hence, their responses should be taken with caution and it is always best to consult the official API documentation for the most accurate and up-to-date information.
 
 ## Query Construction
-One of the ways LLMs like ChatGPT can help you is by constructing queries based on your requirement. However, receiving a perfect API query from ChatGPT depends on its familiarity with the API. However, always keep in mind that the response of an Artificially Intelligent agent should be interpreted in the context of its training data.
+One of the ways LLMs like GPT-4 can help you is by constructing queries based on your requirement. However, receiving a perfect API query from GPT-4 depends on its familiarity with the API. However, always keep in mind that the response of an Artificially Intelligent agent should be interpreted in the context of its training data.
 
-As a strategy, ask the LLM to construct a simple API query and check against the API documentation. If successful, try to gauge its familiarity with a more complex query. Let's try it out!
+As a strategy, ask the LLM to construct a simple API query and check against the API documentation. If successful, try to gauge its familiarity with a more complex query. Let's try it out using National Center for Biotechnology Information (NCBI) E-utilities API. E-utilities documentation: [https://www.ncbi.nlm.nih.gov/books/NBK25499/](https://www.ncbi.nlm.nih.gov/books/NBK25499/)
 
->## National Center for Biotechnology Information (NCBI) E-utilities API.
-> Let's explore the E-utilities documentation: [https://www.ncbi.nlm.nih.gov/books/NBK25499/](https://www.ncbi.nlm.nih.gov/books/NBK25499/)
-> Using this API, create an API query to 
->
+>## Perform a search
+> Search for articles related to "Asthma" that were added to the PubMed database between January 1, 2020, and December 31, 2020
+> 1. Identify which E-utility to use for this task.
+> 2. Identify what parameters you would need to specify
 >>## Solution
->>```python
->>import requests
->>import json
->>```
+>>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Asthma&datetype=edat&mindate=2020/01/01&maxdate=2020/12/31&retmode=xml
 >{: .solution}
 {: .challenge}
+
+>## Perform a search across all Entrez databases
+> Perform a global Entrez search to determine racial/ethnic representation across database contents. 
+> 1. Identify which E-utility to use for this task.
+> 2. Identify how you will conceptualize and categorize racial/ethnic groupings for this task.
+> - NIH racial and ethnic categories include American Indian or Alaska Native, Asian, Black or African American, Hispanic or Latino, Native Hawaiian or Other Pacific Islander, and White. [See NOT-OD-15-089](https://grants.nih.gov/grants/guide/notice-files/not-od-15-089.html) for more details.
+> 3. Write and run the API strings that would enable you to uncover these representations. 
+>
+>>## Solution
+>> Here is an example of API calls that could provide you with summary data based on NIH racial and ethnic categories. (There are many potential solutions to this exercise!) 
+>>1. https://eutils.ncbi.nlm.nih.gov/gquery?term=african+AND+black&retmode=xml
+>>2. https://eutils.ncbi.nlm.nih.gov/gquery?term=white&retmode=xml
+>>3. https://eutils.ncbi.nlm.nih.gov/gquery?term=hispanic+OR+latino&retmode=xml
+>>4. https://eutils.ncbi.nlm.nih.gov/gquery?term=native+hawaiian+OR+pacific+islander&retmode=xml
+>{: .solution}
+{: .challenge}
+
 
 ## Help Understanding API Documentation
 Some API documentations lack clarity on the types and ranges of valid inputs expected for parameters. Often, query parameters are not intuitive and the documentation may not include example queries, making it challenging to construct complex queries due to ambiguities. However, Large Language Models (LLMs) like ChatGPT, trained on extensive web data, can accurately interpret specific query parameters and offer insights into valid input values and their ranges.
 
 
-Let's have a look at the FBI Crime Data API documentation: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi
+>## Find PMC articles 
+> Use E-utility API to perform a search about the condition Peanut Allergy in PMC where the results meet the following parameters: 
+> - The results are sorted by publication date
+> - The results contain Peanut Allergy in the title
+>
+>>## Solution
+>> https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term="Peanut+Allergy"[Title]&sort=pub+date&retmode=xml
+>{: .solution}
+{: .challenge}
 
+Now compare the results with that of https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term=peanut+allergy&field=title&sort=pub+date
+
+Why do you think there's a difference?
+Let's query our cognitive co-pilot!
 
 ## Understanding API Responses
-You can also paste in a block of JSON response from an API request to ChatGPT and ask it to describe it for you.
+You can also paste in a block of JSON/XML response from an API request to GPT4 and ask it to describe it for you.
+
+~~
+...
+<Field>
+<Name>P1DAT</Name>
+<FullName>P1DAT</FullName>
+<Description>Date publication first accessible through Solr</Description>
+<TermCount/>
+<IsDate>Y</IsDate>
+<IsNumerical>N</IsNumerical>
+<SingleToken>Y</SingleToken>
+<Hierarchy>N</Hierarchy>
+<IsHidden>Y</IsHidden>
+</Field>
+</FieldList>
+<LinkList>
+<Link>
+<Name>pubmed_assembly</Name>
+<Menu>Assembly</Menu>
+<Description>Assembly</Description>
+<DbTo>assembly</DbTo>
+</Link>
+<Link>
+<Name>pubmed_bioproject</Name>
+<Menu>Project Links</Menu>
+<Description>Related Projects</Description>
+<DbTo>bioproject</DbTo>
+</Link>
+...
+~~
+{: .output}
 
 ## Resolving Errors
-Sometimes you can receive error codes from an API request. LLMs like ChatGPT can help you understand and resolve these errors.
+Sometimes you can receive error codes from an API request. LLMs like GPT-4 can help you understand and resolve these errors.
+
+Try this query: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term=peanut+allergy&field=title&sort=pub_date
+
+Ask GPT-4 to explain the error.
 
 ## Modifying provided example code 
 Let's try to attempt this task:
@@ -134,5 +195,6 @@ fetch_chimpanzee_mrna_sequences()
 ```
 
 - Output validation: Don't forget to compare the output of the python script against that of the perl script
+
 ## General Queries Regarding Best Practices
-As a very simple yet helpful use-case of LLMs is to enquire about best practices when using API keys aor APIs in general.
+As a very simple yet helpful use-case of LLMs is to enquire about best practices when using API keys or APIs in general.
