@@ -182,7 +182,6 @@ about our API usage&mdash;our rate limit is 40 requests per day, and we have
 >>1. Shows 3 currently-active weather stations in New York and includes metadata about each station.
 >>2. 0005W
 >>3. https://api.weather.gov/alerts/active/area/CA
-
 >{: .solution}
 {: .challenge}
 
