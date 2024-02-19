@@ -78,8 +78,6 @@ Let's query our cognitive co-pilot!
 You can also paste in a block of JSON/XML response from an API request to GPT4 and ask it to describe it for you.
 
 ```xml
-<note>
-...
 <Field>
 <Name>P1DAT</Name>
 <FullName>P1DAT</FullName>
@@ -105,7 +103,6 @@ You can also paste in a block of JSON/XML response from an API request to GPT4 a
 <Description>Related Projects</Description>
 <DbTo>bioproject</DbTo>
 </Link>
-</note>
 ```
 
 ## Resolving Errors
