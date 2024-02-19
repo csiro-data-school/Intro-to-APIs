@@ -10,7 +10,7 @@
 carpentry: "lc"
 
 # Overall title for pages.
-title: "APIs for Libraries"
+title: "Intro to APIs"
 
 
 #------------------------------------------------------------
@@ -26,7 +26,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "joshua.dull@yale.edu"
+email: "sid035@csiro.au"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"

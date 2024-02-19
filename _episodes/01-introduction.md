@@ -1,64 +1,44 @@
 ---
-title: "Introduction to APIs"
-teaching: 25
-exercises: 0
+title: "What is an API?"
+teaching: 15
+exercises: 5
 questions:
-- "What are APIs? What can they do?"
+- "What is an API?"
+- "Why do we need APIs?"
+- "How APIs work?"
 objectives:
-- "Explain how an API functions"
-- "Explain common API types"
+- "Understand the need for an API."
+- "Understand the main components of an API."
+- "Expand Library API knowledge to Web API use."
 keypoints:
-- "APIs are used all over the web'"
-- "APIs alllow applications to request data from web servers"
-- "There are several types of APIs"
-- "APIs can act as a 'middle-man' between you and data"
-- "APIs can help gather bulk data & metadata from library services"
+- "An API is a way for two or more computer programs or components to communicate with each other, enabling efficient data exchange and functionality sharing."
+- "APIs allow for selective data retrieval from large, dynamic datasets, eliminating the need to download entire datasets for accessing small segments of data, thereby saving time and computational resources."
+- " Both library APIs and web APIs share a fundamental principle of abstracting complexity, allowing developers to leverage pre-defined functions or data over the internet"
 ---
 
-## Vocabulary
+Imagine you regularly work with a large, frequently updated online dataset. How do you access the latest data each time you need it? What if you work with only a small segment of the data?
 
-- **API** – Application Programming Interface
-    - A set of clearly defined methods of communication between various software
-       components. (https://en.wikipedia.org/wiki/Application_programming_interface)
-- **REST** – REepresentational State Transfer
-    - _A data-driven architecture for web services reliant on HTTP_
-       - **GET** – Requests data to be returned from an online source
-       - **POST** – Requests data to be submitted to an online source
-- **SOAP–Simple** - Object Access Protocol
-    - _A protocol relying on XML structure to for requests & responses_
-      - Send request XML using terms specific to SOAP•Response sent in XML format
-      - Can use any transport protocol, not just http
-- **OAuth** – Open Authorization Standard
+In such a case, accessing up-to-date information would traditionally mean downloading the entire dataset each time—a process that is far from efficient.
 
-## What is an API?
+Additionally, let's say your task involves mapping longitude and latitude values from the dataset on to a global map, which is a different size each time. Manually scaling these values to accurately place them on a map not only invites redundancy but is also prone to error. Performing these calculations repeatedly for common, globally recognized locations is an unnecessary drain on resources and time.
 
-- Web Applications 
-    - Kayak or Expedia
+This is where APIs come into play. APIs are designed to eliminate such redundancies and boost efficiency. They allow you to request and receive only the data you need, even if it's just a small portion of a larger dataset. For tasks like mapping, APIs can also facilitate automatic handling of the complex calculations and data rendering, presenting you with ready-to-use results.
 
-![Graphic showing Kayak.com](../assets/img/kayak.png)
+## What is an API
+An Application Programming Interface (API) defines how different software components should interact, allowing them to communicate and share data and functionalities efficiently.
 
-## Library-related APIs
-
-- HathiTrust
-    - Bibliographic API: [https://www.hathitrust.org/bib_api](https://www.hathitrust.org/bib_api)
-    - Data API: [ttps://www.hathitrust.org/data_api](https://www.hathitrust.org/data_api)
-- Springer or BioMedCentral
-    - 4 APIs: [Sttps://dev.springer.com/](https://dev.springer.com/)
-- OCLC
-    - 22 APIs: [https://www.oclc.org/developer/develop/web-services.en.html](https://www.oclc.org/developer/develop/web-services.en.html)
-    - Includes ‘Search’, ‘Metadata’, and ‘VIAF’ APIs
-- Voyager API
-    - 2 APIs (VoyagerSearch, VoyagerUpdate)
-    - Developed by YUL Library IT (Yue Ji)
-    - Actively used by Preservation Department for their project and workflow
-
+APIs provide incredible amounts of structured data, as well as the ability to control things that may previously have required specialist proprietary software or even hardware. In particular, the data available via web APIs is particularly useful for data scientists; many data are now only made available via these APIs, and even in cases where data are made available in other formats, using an API is frequently more convenient.
 
 ## How APIs work
 
-![Illustration of APIs as a Barista: https://www.handsonconnect.org/blog/2016/8/17/whatapi-and-whySource:-should-i-care-is-an-9](../assets/img/HowAPIWorks.png)
+![Illustration of APIs as a Barista](../assets/img/HowAPIWorks.png)
 
+## Python Libraries as APIs
+You might already be familiar with the concept of APIs from using Python. For instance, instead of writing out the formula to calculate a mean, you can simply use math.mean(). This approach saves time and simplifies your code. APIs abstract away complexity, allowing you to focus on higher-level problem-solving.
 
-## How APIs work
+## Web APIs
+Although library APIs in Python, such as the math library, differ from web APIs, the principle remains the same. 
 
-![How APIs work in realtion to a web-server: http://www.stepin-solutions.com/blog/api-programming-backbone-of-mobile-app-development/](../assets/img/APIServer.png)
+Library APIs (such as those in Python's standard library) are collections of pre-written code that you can call within your program to perform specific tasks without needing to implement the functionality from scratch.
 
+In contrast, Web APIs are interfaces for interacting with web services over the internet.

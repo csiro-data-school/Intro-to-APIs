@@ -2,11 +2,12 @@
 layout: lesson
 root: .
 ---
-This Library Carpentry lesson introduces library staff to fetching data from APIs.
-At the conclusion of the lesson you will
-understand web data formats like JSON, how APIs function, and how to query APIs using OpenRefine and the Command Line.
+This Carpentry lesson introduces how to fetch data from APIs.
+At the conclusion of the lesson you will understand web data formats like JSON, how APIs function, and how to query APIs using the Command Line and python.
 
-> ## Prerequisites
->To complete this lesson you will need Chrome web browser and OpenRefine. 
-> If not already installed, you will need to install [OpenRefine](http://openrefine.org/download.html). Windows users will need to install [Git for Windows](https://gitforwindows.org/)
-{: .prereq}
+These lessons have been developed using instructional material from two primary carpentry lesson sources:
+-Joshua Dull, Sawyer Newman, & David Cirella. (2019, October). APIs for Libraries (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.3493358
+
+This instructional material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/). The following is a human-readable summary of (and not a substitute for) the [full legal text of the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+-Ed Bennett, Michele Mesiti, Colin Sauzé, "Introduction to the Web and Online APIs"
