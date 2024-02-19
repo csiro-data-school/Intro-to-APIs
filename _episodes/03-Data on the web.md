@@ -5,18 +5,22 @@ exercises: 0
 questions:
 - "How do I read data types like JSON & XML?"
 objectives:
-- "Understand commmon types of structured data"
-- "Understand concepts realted to APIs"
+- "Understand common types of structured data"
+- "Understand concepts related to APIs"
 keypoints:
 - "How to read structured data types: JSON & XML"
 - "What are parameters?"
 - "What are appropriate uses of data retrieved via API?"
 ---
+## Response Body
+
+The response body in an HTTP transaction carries the payload, which could be the requested HTML page, a JSON or XML file containing data from an API, an image, a video stream, or any other type of content that a client requests.
+The format and structure of the response body depend on the type of resource requested and the server's implementation. For example, a REST API might send data in JSON format, while a web server might respond with HTML or binary data like images and documents.
 
 ## Data Formats
 
 - **JSON** – JavaScript Object Notation
-  - Plain text, can open n any text editor or web browser
+  - Plain text, can open on any text editor or web browser
 - **XML** – eXtensible Markup Language
 
 
@@ -74,7 +78,7 @@ keypoints:
 }
 ```
 
-Here's the same data with the Key/Value pairs labled:
+Here's the same data with the Key/Value pairs labeled:
 
 ![Sample JSON data](../assets/img/Slide06.png)
 
