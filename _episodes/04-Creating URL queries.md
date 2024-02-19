@@ -77,76 +77,6 @@ service, including examples.
     - Do they impose a limit?
 
 
-### Constructing an API Query: An Example
-1. **Choose the Endpoint**: Based on what you want to achieve, select the appropriate endpoint. For instance, to retrieve user details, you might have an endpoint like `https://api.example.com/users`.
-
-2. **Identify Required Resources**: Determine what resources you need. Using the `/users` endpoint as an example, the resource is `users`.
-
-3. **Include Necessary Parameters**: Decide on any parameters you need to include. If you're looking for a specific user, you might add a query parameter like `?userId=123` or use a path parameter like `/users/123`.
-
-4. **Set Appropriate Headers**: Include any required headers. If the API requires authentication, you'll need to add an `Authorization` header. If you're submitting data (e.g., with a POST request), you'll likely need to set `Content-Type: application/json`.
-
-5. **Construct the Query**: Combine all the above components to construct your full API query. For a GET request, this might look like `curl -H "Authorization: Bearer <token>" https://api.example.com/users/123`.
-
-You can combine endpoints, resources, parameters, and headers to construct effective API queries to retrieve data, submit new information, or perform other operations through the API.
-
-
-### YouTube
-
- **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
-![youtube URL](../assets/img/youtubeAPI.png)
-
-
-## NASA API
-For example, NASA offers an API that exposes much of the data that they make
-public. They require an API key to identify you, but don't require any
-authentication beyond this.
-
-Let's try working with the NASA API now. To do this, first we need to generate
-our API key by providing our details at [the API home page][nasa-api]. Once that
-is done, NASA provide the API key instantly, and send a copy to the email
-address you provide. 
-
-
-Let's construct an API query to try, querying the Astronomy Picture of the Day (APOD).
-The first step is to read and understand the API documentation. They also provide example queries in which you can see that NASA
-expects the API key to be encoded as a query parameter.
-
-~~~
-$ curl -i https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
-~~~
-{: .language-bash}
-
-~~~
-HTTP/2 200 
-date: Thu, 08 Feb 2024 02:39:35 GMT
-content-type: application/json
-content-length: 1265
-vary: Accept-Encoding
-access-control-allow-origin: *
-access-control-expose-headers: X-RateLimit-Limit, X-RateLimit-Remaining
-age: 1
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-vary: Accept-Encoding
-via: https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
-x-api-umbrella-request-id: cdgqarbvpj8g36vie310
-x-cache: MISS
-x-ratelimit-limit: 40
-x-ratelimit-remaining: 39
-x-vcap-request-id: 029df11c-5e1d-4b6b-6389-b62bf72c9566
-x-frame-options: DENY
-x-content-type-options: nosniff
-x-xss-protection: 1; mode=block
-
-{"copyright":"\nKent E. Biggs\n","date":"2024-02-07","explanation":"Are these two galaxies really attracted to each other? Yes, gravitationally, and the result appears as an enormous iconic heart -- at least for now. Pictured is the pair of galaxies cataloged as NGC 4038 and NGC 4039,known as the Antennae Galaxies.  Because they are only 60 million light years away, close by intergalactic standards, the pair is one of the best studied interacting galaxies on the night sky. Their strong attraction began about a billion years ago when they passed unusually close to each other.  As the two galaxies interact, their stars rarely collide, but new stars are formed when their interstellar gases crash together.  Some new stars have already formed, for example, in the long antennae seen extending out from the sides of the dancing duo. By the time the galaxy merger is complete, likely over a billion years from now, billions of new stars may have formed.   Open Science: Browse 3,300+ codes in the Astrophysics Source Code Library","hdurl":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_3840.jpg","media_type":"image","service_version":"v1","title":"The Heart Shaped Antennae Galaxies","url":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_960.jpg"}
-~~~
-{: .output}
-
-We can see that this API gives us JSON output including links to two versions
-of the picture of the day, and then metadata about the picture including its
-title, description, and copyright. The headers also give us some information
-about our API usage&mdash;our rate limit is 40 requests per day, and we have
-39 of these remaining.
 
 ## URL Query Strings
 
@@ -182,16 +112,76 @@ Combining these components, the full URL `https://eutils.ncbi.nlm.nih.gov/entrez
 
 By sending a request to this URL, you're asking the NCBI E-utilities service to fetch the data for a nucleotide sequence identified by `id=5` from the `nucleotide` database and return it in FASTA format. This is a common task in bioinformatics, where accessing specific genetic sequences efficiently is crucial for research and analysis.
 
-## Let’s create a query 
-Run this query: https://api.weather.gov/stations?limit=3
-1. What do the results show?
-2. What is the Station Identifier for Hawks Rise Elementary?
-3. Write a query that returns all active weather alerts for California. (Hint: Check API doc https://www.weather.gov/documentation/services-web-api)
->
->## Solution
->1. Shows 3 currently-active weather stations in New York and includes metadata about each station.
->2. 0005W
->3. https://api.weather.gov/alerts/active/area/CA
+You can combine endpoints, resources, parameters, and headers to construct effective API queries to retrieve data, submit new information, or perform other operations through the API.
+
+
+### YouTube
+
+ **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
+![youtube URL](../assets/img/youtubeAPI.png)
+
+
+## NASA API - Example of using an API key
+NASA offers an API that exposes much of the data that they make
+public. They require an API key to identify you, but don't require any
+authentication beyond this.
+
+Let's try working with the NASA API now. To do this, first we need to generate
+our API key by providing our details at [the API home page][nasa-api]. Once that
+is done, NASA provide the API key instantly, and send a copy to the email
+address you provide. 
+
+
+Let's construct an API query to try, querying the Astronomy Picture of the Day (APOD).
+The first step is to read and understand the API documentation. They also provide example queries in which you can see that NASA
+expects the API key to be encoded as a query parameter.
+
+~~~
+$ curl -i "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+~~~
+{: .language-bash}
+
+~~~
+HTTP/2 200 
+date: Thu, 08 Feb 2024 02:39:35 GMT
+content-type: application/json
+content-length: 1265
+vary: Accept-Encoding
+access-control-allow-origin: *
+access-control-expose-headers: X-RateLimit-Limit, X-RateLimit-Remaining
+age: 1
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+vary: Accept-Encoding
+via: https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+x-api-umbrella-request-id: cdgqarbvpj8g36vie310
+x-cache: MISS
+x-ratelimit-limit: 40
+x-ratelimit-remaining: 39
+x-vcap-request-id: 029df11c-5e1d-4b6b-6389-b62bf72c9566
+x-frame-options: DENY
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+
+{"copyright":"\nKent E. Biggs\n","date":"2024-02-07","explanation":"Are these two galaxies really attracted to each other? Yes, gravitationally, and the result appears as an enormous iconic heart -- at least for now. Pictured is the pair of galaxies cataloged as NGC 4038 and NGC 4039,known as the Antennae Galaxies.  Because they are only 60 million light years away, close by intergalactic standards, the pair is one of the best studied interacting galaxies on the night sky. Their strong attraction began about a billion years ago when they passed unusually close to each other.  As the two galaxies interact, their stars rarely collide, but new stars are formed when their interstellar gases crash together.  Some new stars have already formed, for example, in the long antennae seen extending out from the sides of the dancing duo. By the time the galaxy merger is complete, likely over a billion years from now, billions of new stars may have formed.   Open Science: Browse 3,300+ codes in the Astrophysics Source Code Library","hdurl":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_3840.jpg","media_type":"image","service_version":"v1","title":"The Heart Shaped Antennae Galaxies","url":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_960.jpg"}
+~~~
+{: .output}
+
+We can see that this API gives us JSON output including links to two versions
+of the picture of the day, and then metadata about the picture including its
+title, description, and copyright. The headers also give us some information
+about our API usage&mdash;our rate limit is 40 requests per day, and we have
+39 of these remaining.
+
+>## Let’s create a query 
+>Run this query: https://api.weather.gov/stations?limit=3
+>1. What do the results show?
+>2. What is the Station Identifier for Hawks Rise Elementary?
+>3. Write a query that returns all active weather alerts for California. (Hint: Check API doc https://www.weather.gov/documentation/services-web-api)
+>>
+>>## Solution
+>>1. Shows 3 currently-active weather stations in New York and includes metadata about each station.
+>>2. 0005W
+>>3. https://api.weather.gov/alerts/active/area/CA
 
 >{: .solution}
 {: .challenge}

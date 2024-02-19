@@ -19,9 +19,9 @@ keypoints:
 
 Entrez is a molecular biology database system that provides integrated access to nucleotide and protein sequence data, genomic mapping informaiton, 3D structure data, PubMed MEDLINE, and more. This system is produced by the National Center for Biotechnology Information (NCBI). 
 
-Entrez is NCBI's primary text search and retreival system that integrates the PubMed database of biomedical literature with 38 other literature and molecular databases
+Entrez is NCBI's primary text search and retrieval system that integrates the PubMed database of biomedical literature with 38 other literature and molecular databases
 
-The web based search interface for these NCBI databases is avaiable to the public [here, through the U.S. National Library of Medicine](http://www.ncbi.nlm.nih.gov/Entrez/).
+The web based search interface for these NCBI databases is available to the public [here, through the U.S. National Library of Medicine](http://www.ncbi.nlm.nih.gov/Entrez/).
 
 #### Databases included in Entrez
 [You can find a full list of Entrez databases listed here](https://www.ncbi.nlm.nih.gov/books/NBK3837/).
@@ -51,9 +51,9 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
  >
 >Output: List of UIDs matching the Entrez query
 >
-> Example: Get the PubMed IDs (PMIDs) for articles about breast cancer published in Science in 2008
+> Example: Get the PubMed IDs (PMIDs) for articles about brain tumour published in Science in 2023
   >
->https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=science[journal]+AND+breast+cancer+AND+2008[pdat] 
+>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=science[journal]+AND+brain+tumour+AND+2023[pdat] 
 > 
 {: .checklist}
   
@@ -106,7 +106,6 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 >>## Solution
 >>- Here is an example solution:
 >>1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed
->>- Share your solution in the etherpad! 
 >{: .solution}
 {: .challenge}
 
