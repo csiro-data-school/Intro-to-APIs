@@ -32,6 +32,7 @@ As a strategy, ask the LLM to construct a simple API query and check against the
 > Search for articles related to "Asthma" that were added to the PubMed database between January 1, 2020, and December 31, 2020
 > 1. Identify which E-utility to use for this task.
 > 2. Identify what parameters you would need to specify
+>
 >>## Solution
 >>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Asthma&datetype=edat&mindate=2020/01/01&maxdate=2020/12/31&retmode=xml
 >{: .solution}
@@ -76,7 +77,7 @@ Let's query our cognitive co-pilot!
 ## Understanding API Responses
 You can also paste in a block of JSON/XML response from an API request to GPT4 and ask it to describe it for you.
 
-~~
+```xml
 ...
 <Field>
 <Name>P1DAT</Name>
@@ -104,8 +105,7 @@ You can also paste in a block of JSON/XML response from an API request to GPT4 a
 <DbTo>bioproject</DbTo>
 </Link>
 ...
-~~
-{: .output}
+```
 
 ## Resolving Errors
 Sometimes you can receive error codes from an API request. LLMs like GPT-4 can help you understand and resolve these errors.
