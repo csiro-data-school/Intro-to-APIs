@@ -88,7 +88,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 ## Exercises
 
 >## Find Pubmed articles 
-> Use E-utility ESearch to perform a search about the condition Cold Uricaria in PubMed where the results meet the following parameters: 
+> Use E-utility ESearch to perform a search about the condition Cold urticaria in PubMed where the results meet the following parameters: 
 > - The results are sorted by publication date
 > - The results contain cold urticaria in the title
 >
