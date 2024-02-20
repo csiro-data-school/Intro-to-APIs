@@ -262,4 +262,45 @@ print(response.json())
 >{: .solution}
 {: .challenge}
 
+>## Let’s retrieve some information on asteroids
+> Use the NASA API to check which potentially hazardous asteroids are approaching Earth in March 2024
+>>## Solution
+>>```python
+>>import requests
+>>import json
+>>
+>># Replace DEMO_KEY with your actual API key
+>>api_key = "DEMO_KEY"
+>>
+>># Set the date range you're interested in
+>>start_date = "2024-03-01"
+>>end_date = "2024-03-07"
+>>
+>># The base URL for the NEO feed
+>>url = f"https://api.nasa.gov/neo/rest/v1/feed?start_date={start_date}&end_date={end_date}&api_key={api_key}"
+>>
+>># Make a GET request to the NASA API
+>>response = requests.get(url)
+>>
+>># Check if the request was successful
+>>if response.status_code == 200:
+>>    # Parse the JSON response
+>>    data = response.json()
+>>    
+>>    # Iterate through the asteroid data
+>>    for date in data["near_earth_objects"]:
+>>        for asteroid in data["near_earth_objects"][date]:
+>>            if asteroid["is_potentially_hazardous_asteroid"]:
+>>                # Print details about potentially hazardous asteroids
+>>                print(f"Asteroid {asteroid['name']} (ID: {asteroid['id']})")
+>>                print(f"Potentially Hazardous: {asteroid['is_potentially_hazardous_asteroid']}")
+>>                print(f"Close Approach Date: {asteroid['close_approach_data'][0]['close_approach_date']}")
+>>                print(f"Miss Distance (kilometers): {asteroid['close_approach_data'][0]['miss_distance']['kilometers']}")
+>>                print(f"Velocity (km/s): {asteroid['close_approach_data'][0]['relative_velocity']['kilometers_per_second']}\n")
+>>else:
+>>    print("Failed to retrieve data:", response.status_code)
+>>
+>>```
+>{: .solution}
+{: .challenge}
 
