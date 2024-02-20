@@ -229,21 +229,37 @@ print(response.json())
 >>## Solution
 >>```python
 >>import requests
->>import json
 >>
 >>api_key = "DEMO_KEY"
->>sol = "1000"  # Replace with the sol you're interested in
->>url = f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol={sol}&api_key={api_key}"
+>># The Martian solar day (sol) you're interested in
+>>sol = "1000"
 >>
->>response = requests.get(url)
+>># The base URL for the NASA Mars Rover Photos API
+>>base_url = "https://api.nasa.gov/mars-photos/api/v1/"
 >>
+>># The endpoint for retrieving photos from the Curiosity rover
+>>endpoint = f"{base_url}/rovers/curiosity/photos"
+>>
+>># The parameters for the request, including the sol and your API key
+>>parameters = {
+>>    "sol": sol,
+>>    "api_key": api_key
+>>}
+>># Make the GET request to the NASA API, passing the parameters separately
+>>response = requests.get(endpoint, params=parameters)
+>>
+>># Check if the response status code is 200 (OK)
 >>if response.status_code == 200:
+>>    # Parse the JSON response to get the photos
 >>    photos = response.json()['photos']
+>>    # Iterate through the photo entries and print the URL of each image
 >>    for photo in photos:
->>        print(photo['img_src'])  # This will print the URL of each image
+>>        print(photo['img_src'])
 >>else:
+>>    # Handle errors if the request was not successful
 >>    print("Failed to retrieve photos. Status Code:", response.status_code)
 >>```
 >{: .solution}
 {: .challenge}
+
 
