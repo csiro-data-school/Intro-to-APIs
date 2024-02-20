@@ -223,3 +223,27 @@ params = {"api_key": api_key, "count": 2}
 response = requests.get(endpoint, params=params, headers=headers)
 print(response.json())
 ```
+
+>## Let’s retrieve some photos of Mars!
+> Use the NASA API to retrieve pictures from the curiosity rover in Mars
+>>## Solution
+>>```python
+>>import requests
+>>import json
+>>
+>>api_key = "DEMO_KEY"
+>>sol = "1000"  # Replace with the sol you're interested in
+>>url = f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol={sol}&api_key={api_key}"
+>>
+>>response = requests.get(url)
+>>
+>>if response.status_code == 200:
+>>    photos = response.json()['photos']
+>>    for photo in photos:
+>>        print(photo['img_src'])  # This will print the URL of each image
+>>else:
+>>    print("Failed to retrieve photos. Status Code:", response.status_code)
+>>```
+>{: .solution}
+{: .challenge}
+
