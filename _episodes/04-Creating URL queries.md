@@ -72,18 +72,15 @@ Here's how each component plays a role:
 
 ### Endpoints
 An endpoint is a specific URL at which an API can be accessed. It represents a specific function or resource within the API. To construct an API query, you start with the `base URL` of the API and append the specific `endpoint` that corresponds to the data or functionality you want to access. In the above example:
-**Base URL:** `https://api.nasa.gov/`
-**Endpoint:** `/mars-photos/api/v1/rovers/{roverName}/photos`
-
+- **Base URL:** `https://api.nasa.gov/`
+- **Endpoint:** `/mars-photos/api/v1/rovers/{roverName}/photos`
+Using this endpoint, you can retrieve photos captured by a specified Mars rover. By replacing {roverName} in the URL with the name of an actual rover, you will be able to access the relevant images.
 
 ### Parameters
  Parameters are options you can include in your API query to filter, sort, or manipulate the data returned by the API.
 - **Types**: There are different types of parameters:
-  - **Query Parameters**: Added to the end of the endpoint URL, usually after a `?`, to filter the results. For example, `/photos?camera=FHAZ` might return weather data specifically for London.
   - **Path Parameters**: Parts of the endpoint URL itself that specify a specific resource or subset of resources. Using the  example, `{roverName}` in `/rovers/{roverName}` is a path parameter.
-  - **Body Parameters**: Sent within the request body, typically with POST or PUT requests, containing data to be processed by the API.
-
-
+  - **Query Parameters**: Added to the end of the endpoint URL, usually after a `?`, to filter the results. For example, `/photos?camera=FHAZ` returns the photos taken by the Front Hazard Avoidance Camera	(FHAC) of the rover.
 
 ## NASA API - Example of using an API key
 To use the NASA API, you need an API key to identify yourself, but no additional authentication is required beyond this.
