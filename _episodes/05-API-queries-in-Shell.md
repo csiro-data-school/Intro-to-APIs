@@ -33,20 +33,16 @@ The full manual of usage options are available on the command line by entering `
 
 The `-G` option in `curl` is used to make a GET request with data appended to the URL query string. When you use `-G`, any data specified with the `-d` or `--data-urlencode` option is appended to the URL as query parameters rather than being sent as the body of a POST request.
 
-## Syntax
-
 ~~~
 $ curl -G [URL] [options]
 ~~~
 {: .bash}
 
  
-## Using the `--data-urlencode` Option in `curl`
+### Using the `--data-urlencode` Option in `curl`
 
 The `--data-urlencode` option in `curl` is used to URL-encode data before sending it in an HTTP request. This is particularly useful when the data contains special characters or spaces that need to be encoded properly for the request.
 
-
-### Original `curl` Command
 ~~~
 $ curl -G https://images-api.nasa.gov/search --data-urlencode "q=apollo" --data-urlencode "description=moon landing" --data-urlencode "media_type=image" --data-urlencode "page_size=1"
 ~~~
@@ -57,11 +53,7 @@ This command generates the following URL:
 `https://images-api.nasa.gov/search?q=apollo&description=moon%20landing&media_type=image&page_size=1`
 
 
-# Using the `json.tool` Module in Python to Pretty-Print JSON
-
-The `json.tool` module in Python is a convenient way to pretty-print JSON data directly from the command line. This is useful for making JSON data more readable and easier to inspect.
-
-## Pretty-Printing JSON
+# Pretty printing with `json.tool` Module in Python
 
 You can use `python -m json.tool` to pretty-print JSON data, making it easier to read and inspect:
 
@@ -138,12 +130,7 @@ $ curl -G https://images-api.nasa.gov/search --data-urlencode "q=apollo" --data-
 ~~~
 {: .bash}
 
-## JSON filtering with `jq`
-
-The `jq` command transforms JSON content through selection and filtering.  Using the Unix shell "pipe" `|` allows us to take the API response that we receive from our `curl` command, and process it in various ways with `jq`  
-
-
-#### Pretty-print with `jq .`
+#### Pretty-print with `jq .` from the command line
 Be default, the JSON returned in most API calls has the white-space removed, while this is more efficient for transfer and makes no operational difference, it makes the data difficult for humans to read.  The `jq` tool can be used to pretty-print, or format the JSON in a human-readable way, using the `.` command.
 
 ~~~
