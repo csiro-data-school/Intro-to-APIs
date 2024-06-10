@@ -139,7 +139,7 @@ about our API usage&mdash;our rate limit is 40 requests per day, and we have
 >
 >>## Solution
 >>1. The result from the API query shows data for a specific image related to the Apollo moon missions. It includes metadata like the image’s title (“Apollo Footprint”), a description noting that Buzz Aldrin took the photo of a bootprint on the moon during the Apollo 11 mission. It also provides a link to the thumbnail of the image.
->>2. Yes, the URL link for the media type (an image) returned by the search is provided under the links array within the items. The specific link is: `https://images-assets.nasa.gov/image/PIA24439/PIA24439~thumb.jpg`
+>>2. The URL link for the media type (an image) returned by the search is provided under the links array within the items. The specific link is: `https://images-assets.nasa.gov/image/PIA24439/PIA24439~thumb.jpg`
 >>3. To modify the existing query to search for videos instead of images, you would need to change the media_type parameter from image to video. `https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=video&page_size=1`
 >{: .solution}
 {: .challenge}

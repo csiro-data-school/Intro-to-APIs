@@ -81,8 +81,18 @@ An HTTP _response_ from a server typically consists of the following key compone
 In a GET request for a webpage, the body would contain the HTML of the page.
 In a POST request that submits data (like a form submission), the response body might contain a confirmation message or the details of the created resource.
 
-## Example HTTP request and response in bash
-To look at these in more detail, we can use the `curl` command. Specifically, to see the request headers, we can use `curl -i` followed by the URL we wish to request.
+#  HTTP request and response in bash: Introduction to `curl`
+## What is `curl`?
+
+`curl` is a command-line tool used for transferring data to or from a server. It supports multiple protocols including HTTP, HTTPS, FTP, and more, making it a versatile tool for testing and interacting with APIs.
+
+## Basic `curl` Syntax
+
+  ```bash
+  curl [options] [URL]
+
+
+To see the request headers along with the response body, we can use `curl -i` followed by the URL we wish to request.
 
 ~~~
 $ curl -i http://carpentries.org
