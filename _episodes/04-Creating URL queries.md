@@ -15,59 +15,17 @@ keypoints:
 - "URL queries are found all across the web"
 ---
 
-To construct an API query or request, you typically use a combination of endpoints, resources, parameters, and headers.
-Let's analyse this query:
-`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY`
 
-Here's how each component plays a role:
+### Example API query: Youtube
 
-### Endpoints
-An endpoint is a specific URL at which an API can be accessed. It represents a specific function or resource within the API. To construct an API query, you start with the `base URL` of the API and append the specific `endpoint` that corresponds to the data or functionality you want to access. In the above example:
-
-
-### Resources
-Resources are the entities or data objects that the API can provide. They represent the types of information the API can return or accept.
-Resources are often part of the endpoint path. For example, in an endpoint like `/users/{userId}`, `users` is the resource, and `{userId}` is a variable part of the path that specifies a particular user.
-
-### Parameters
- Parameters are options you can include in your API query to filter, sort, or manipulate the data returned by the API.
-- **Types**: There are different types of parameters:
-  - **Query Parameters**: Added to the end of the endpoint URL, usually after a `?`, to filter the results. For example, `/weather?city=London` might return weather data specifically for London.
-  - **Path Parameters**: Parts of the endpoint URL itself that specify a specific resource or subset of resources. Using the previous example, `{userId}` in `/users/{userId}` is a path parameter.
-  - **Body Parameters**: Sent within the request body, typically with POST or PUT requests, containing data to be processed by the API.
-
-### Headers
-Headers provide additional metadata for an HTTP request or response. They can include information about the content type, authentication, and other settings. In constructing an API query, headers might be used to pass authentication tokens (e.g., `Authorization: Bearer <token>`) or specify the format of the data being sent (e.g., `Content-Type: application/json`).
-
-## Authentication and identification
-
-Many web APIs restrict access to registered users or applications. This may be
-because they are used to control things that are specific to a particular user
-account, because different people have different privilege levels and so
-different endpoints available, or simply because the API provider wants to
-collect statistics on how the API is being used.
-
-Various ways exist for developers to authenticate to an API, including:
-
-## Different methods of Authentication & Authorisation
-* Basic Authentication: Username and Password mechanism.
-* API Keys: Tokens to identify and validate the user/application.
-* OAuth: A standard protocol for token-based authentication and authorization.
-
-One important fact about HTTP is that it is _stateless_: each request is treated
-entirely separately, with no memory from one request to the next. This means
-that you must present your authentication credentials with every request you
-make to the API.
-
-
-For the vast majority of APIs, there will exist good developer documentation that provides examples of
-how to use the token or other identifier that they provide to connect to their
-service, including examples.
-
+ **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
+![youtube URL](../assets/img/youtubeAPI.png)
 
 ## Constructing API Queries
+To construct an API query or request, you typically use a combination of endpoints, resources, parameters, and headers, which can be obtained from an APIs documentation. NASA offers an API that exposes much of the data that they make public. In this lesson, we will look at the NASA API portal, `https://api.nasa.gov/`, which makes NASA data, including imagery, eminently accessible to application developers.
 
-### Reading Documentation
+
+### Reading API Documentation
 
 - Look through the params
     - What types of search parameters are available?
@@ -83,53 +41,52 @@ service, including examples.
 
 
 
-## URL Query Strings
+## Authentication and identification
 
-Let's break down the given URL `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta` to illustrate various API concepts using this specific example:
+Many web APIs restrict access to registered users or applications. This may be
+because they are used to control things that are specific to a particular user
+account, because different people have different privilege levels and so
+different endpoints available, or simply because the API provider wants to
+collect statistics on how the API is being used.
 
-### Base URL
+Various ways exist for developers to authenticate to an API, including:
 
-- **Base URL**: `https://eutils.ncbi.nlm.nih.gov`
-  - This part of the URL specifies the protocol (`https`) and the domain (`eutils.ncbi.nlm.nih.gov`), directing the request to the NCBI's (National Center for Biotechnology Information) E-utilities server, which hosts various services and databases.
+## Different methods of Authentication & Authorisation
+* Basic Authentication: Username and Password mechanism.
+* OAuth: A standard protocol for token-based authentication and authorization.
+* API Keys: Tokens to identify and validate the user/application.
 
-### Endpoint
+One important fact about HTTP is that it is _stateless_: each request is treated
+entirely separately, with no memory from one request to the next. This means
+that you must present your authentication credentials with every request you
+make to the API.
 
-- **Endpoint**: `/entrez/eutils/efetch.fcgi`
-  - This part of the URL specifies the particular service or function within the API that you want to access. In this case, `efetch.fcgi` is the endpoint that facilitates fetching or retrieving data.
+For the vast majority of APIs, there will exist good developer documentation that provides examples of
+how to use the token or other identifier that they provide to connect to their
+service, including examples.
 
-### Resources
+Let's analyse this query from the NASA API:
+`https://api.nasa.gov/mars-photos/api/v1/rovers/{roverName}/photos?camera=FHAZ&sol=1000&api_key=DEMO_KEY`
 
-- While the term "resources" in a RESTful API context usually refers to a specific type of data or entity (like `/users` or `/posts`), in this URL, the concept is implied through the combination of the endpoint and the query parameters. The resource being accessed here is nucleotide sequence data from NCBI's databases.
+Here's how each component plays a role:
+
+### Endpoints
+An endpoint is a specific URL at which an API can be accessed. It represents a specific function or resource within the API. To construct an API query, you start with the `base URL` of the API and append the specific `endpoint` that corresponds to the data or functionality you want to access. In the above example:
+**Base URL:** `https://api.nasa.gov/`
+**Endpoint:** `/mars-photos/api/v1/rovers/{roverName}/photos`
+
 
 ### Parameters
+ Parameters are options you can include in your API query to filter, sort, or manipulate the data returned by the API.
+- **Types**: There are different types of parameters:
+  - **Query Parameters**: Added to the end of the endpoint URL, usually after a `?`, to filter the results. For example, `/photos?camera=FHAZ` might return weather data specifically for London.
+  - **Path Parameters**: Parts of the endpoint URL itself that specify a specific resource or subset of resources. Using the  example, `{roverName}` in `/rovers/{roverName}` is a path parameter.
+  - **Body Parameters**: Sent within the request body, typically with POST or PUT requests, containing data to be processed by the API.
 
-Parameters are included in the query string of the URL, which is the part after the `?`, with each key-value pair separated by `&`.
-
-- **`db=nucleotide`**: This parameter specifies the database that the API should search in. Here, `db` stands for "database," and `nucleotide` indicates that the query is targeted at the nucleotide database.
-- **`id=5`**: This parameter specifies the unique identifier of the nucleotide sequence you want to retrieve. The `id` here is set to `5`, which would correspond to a specific sequence record in the database.
-- **`rettype=fasta`**: This parameter defines the format of the response. `fasta` is a text-based format for representing nucleotide sequences (and protein sequences), indicating that the API should return the data in FASTA format.
-
-### Constructing the API Query
-
-Combining these components, the full URL `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=5&rettype=fasta` is constructed to specifically fetch a nucleotide sequence with the ID `5` from the nucleotide database in FASTA format.
-
-### Understanding the Query
-
-By sending a request to this URL, you're asking the NCBI E-utilities service to fetch the data for a nucleotide sequence identified by `id=5` from the `nucleotide` database and return it in FASTA format. This is a common task in bioinformatics, where accessing specific genetic sequences efficiently is crucial for research and analysis.
-
-You can combine endpoints, resources, parameters, and headers to construct effective API queries to retrieve data, submit new information, or perform other operations through the API.
-
-
-### YouTube
-
- **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
-![youtube URL](../assets/img/youtubeAPI.png)
 
 
 ## NASA API - Example of using an API key
-NASA offers an API that exposes much of the data that they make
-public. They require an API key to identify you, but don't require any
-authentication beyond this.
+To use the NASA API, you need an API key to identify yourself, but no additional authentication is required beyond this.
 
 Let's try working with the NASA API now. To do this, first we need to generate
 our API key by providing our details at [the API home page][nasa-api]. Once that
