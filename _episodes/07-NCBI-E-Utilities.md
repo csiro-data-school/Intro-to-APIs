@@ -112,3 +112,20 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 {: .challenge}
 
 
+> ## Search for genetic information
+> Use an E-utility endpoint to perform a search for genetic information about the gene BRCA1 in the Nucleotide database with results limited to 10 entries
+>
+>> ## Solution
+>> 1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nucleotide&term=BRCA1&retmax=10
+> {: .solution}
+{: .challenge}
+
+> ## Get database information
+> Write an API query to get detailed information about the taxonomy database in Entrez and return the results in JSON.
+>
+>> ## Solution
+>> 1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=taxonomy&retmode=json
+> {: .solution}
+{: .challenge}
+
+
