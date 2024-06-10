@@ -29,18 +29,9 @@ Building on the skill from [Unix shell](https://librarycarpentry.org/lc-shell/) 
 In this lesson we will use `curl` command for interacting with our API endpoints and either `jq` or `xmlstarlet` to process the return based on the type response that is given by the endpoint.  In both cases we use the Unix shell pipe `|` to redirect the output of the `curl` command into the next for processing.
 The full manual of usage options are available on the command line by entering `man curl`
 
-## Using the `-G` Option in `curl`
+## Using the `-G` and the `--data-urlencode` option in `curl`
 
 The `-G` option in `curl` is used to make a GET request with data appended to the URL query string. When you use `-G`, any data specified with the `-d` or `--data-urlencode` option is appended to the URL as query parameters rather than being sent as the body of a POST request.
-
-~~~
-$ curl -G [URL] [options]
-~~~
-{: .bash}
-
- 
-### Using the `--data-urlencode` Option in `curl`
-
 The `--data-urlencode` option in `curl` is used to URL-encode data before sending it in an HTTP request. This is particularly useful when the data contains special characters or spaces that need to be encoded properly for the request.
 
 ~~~
