@@ -16,7 +16,7 @@ keypoints:
 
 ## Fetching data from the web
 
-With a [URL query](https://jhttps://csiro-data-school.github.io/Intro-to-APIs/04-Creating%20URL%20queries/index.html) in hand, the [Unix shell](https://librarycarpentry.org/lc-shell/) provides a powerful command line driven interface for processing and interacting with large amounts of text data.  As the response from many APIs will be in a text-based format, such as JSON or XML, various shell tools will provide us with the functionality  to acquire data and process the response, allowing for easy use of the large existing set of Unix tools.
+With a [URL query](https://csiro-data-school.github.io/Intro-to-APIs/04-Creating%20URL%20queries/index.html) in hand, the [Unix shell](https://librarycarpentry.org/lc-shell/) provides a powerful command line driven interface for processing and interacting with large amounts of text data.  As the response from many APIs will be in a text-based format, such as JSON or XML, various shell tools will provide us with the functionality  to acquire data and process the response, allowing for easy use of the large existing set of Unix tools.
 
 
 ## Shell Tools  
