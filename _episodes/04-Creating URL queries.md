@@ -15,10 +15,15 @@ keypoints:
 - "URL queries are found all across the web"
 ---
 
-To construct an API query or request, you typically use a combination of endpoints, resources, parameters, and headers. Here's how each component plays a role:
+To construct an API query or request, you typically use a combination of endpoints, resources, parameters, and headers.
+Let's analyse this query:
+`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY`
+
+Here's how each component plays a role:
 
 ### Endpoints
-An endpoint is a specific URL at which an API can be accessed. It represents a specific function or resource within the API. To construct an API query, you start with the base URL of the API and append the specific endpoint that corresponds to the data or functionality you want to access. For example, in a weather API, there might be an endpoint like `/weather` to get current weather data.
+An endpoint is a specific URL at which an API can be accessed. It represents a specific function or resource within the API. To construct an API query, you start with the `base URL` of the API and append the specific `endpoint` that corresponds to the data or functionality you want to access. In the above example:
+
 
 ### Resources
 Resources are the entities or data objects that the API can provide. They represent the types of information the API can return or accept.
