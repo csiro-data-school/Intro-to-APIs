@@ -16,7 +16,7 @@ keypoints:
 ---
 
 
-### Example API query: Youtube
+### URL query String Example: Youtube
 
  **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
 ![youtube URL](../assets/img/youtubeAPI.png)
