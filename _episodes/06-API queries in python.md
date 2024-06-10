@@ -28,7 +28,7 @@ Let's make the same request we observed in shell
 import requests
 
 # URL you want to make the request to
-url = "https://libapp.library.yale.edu/VoySearch/GetBibItem?isxn=9780415704953"
+url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
 
 # Making the GET request
 response = requests.get(url)
@@ -53,11 +53,14 @@ This structured approach is particularly useful in scenarios where you might nee
 import requests
 
 # Base URL of the API endpoint
-base_url = "https://libapp.library.yale.edu/VoySearch/GetBibItem"
+base_url = "https://images-api.nasa.gov/search"
 
 # Parameters to be sent with the request
 params = {
-    'isxn': '9780415704953'
+    'q': 'apollo',
+    'description': 'moon landing',
+    'media_type': 'image',
+    'page_size': '1'
 }
 
 # Headers for the request
@@ -88,14 +91,26 @@ One of the primary uses of the `json` module is to parse JSON data received from
 #### Example of Parsing JSON:
 
 ```python
+import requests
 import json
 
-# Sample JSON data received from an API
-json_data = '{"name": "John", "age": 30, "city": "New York"}'
+# URL you want to make the request to
+url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
 
-# Parse JSON data into a Python dictionary
-data_dict = json.loads(json_data)
+# Making the GET request
+response = requests.get(url)
 
+# Checking if the request was successful
+if response.status_code == 200:
+    # The request was successful; you can now process the response
+    print("Request successful!")
+    # Printing the content of the response; assuming it's text-based like HTML or JSON
+    print(response.text)
+else:
+    # The request failed
+    print(f"Request failed with status code: {response.status_code}")
+
+data_dict = json.loads(response.text)
 print(data_dict) 
 ```
 
@@ -108,16 +123,27 @@ The `json.dumps()` function provides parameters like `indent` and `sort_keys` to
 #### Example of Converting to JSON:
 
 ```python
+import requests
 import json
 
-# A Python dictionary
-data_dict = {
-    "name": "Jane",
-    "age": 25,
-    "city": "Los Angeles"
-}
+# URL you want to make the request to
+url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
 
-# Convert the Python dictionary to a JSON string
+# Making the GET request
+response = requests.get(url)
+
+# Checking if the request was successful
+if response.status_code == 200:
+    # The request was successful; you can now process the response
+    print("Request successful!")
+    # Printing the content of the response; assuming it's text-based like HTML or JSON
+    print(response.text)
+else:
+    # The request failed
+    print(f"Request failed with status code: {response.status_code}")
+
+data_dict = json.loads(response.text)
+print(data_dict) 
 
 json_data = json.dumps(data_dict,indent=4, sort_keys=True)
 
