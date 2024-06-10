@@ -47,55 +47,6 @@ else:
 
  To structure the HTTP request in a more organized way, especially for complex APIs, you can break down the request into components such as URL, parameters, and headers. This approach enhances readability and maintainability, particularly when dealing with APIs that require authentication, accept various parameters, or depend on specific header values.
 
-### 1. Base URL
-The base URL is the root address of the API endpoint you're accessing.
-
-```python
-base_url = "https://libapp.library.yale.edu/VoySearch/GetBibItem"
-```
-
-### 2. Parameters
-Parameters are often used in GET requests to filter data, specify queries, etc. They are appended to the URL as a query string.
-
-```python
-params = {
-    'isxn': '9780415704953'
-}
-```
-
-### 3. Headers
-Headers can include metadata such as content type, authentication tokens, and other information about the request or the desired response.
-
-```python
-headers = {
-    'Accept': 'application/json',  # Assuming the API returns JSON data
-    # 'Authorization': 'Bearer YOUR_API_KEY',  # Uncomment if you need authentication
-}
-```
-
-### 4. Making the Request
-With the URL, parameters, and headers defined, you can make the request using the `requests` library. The `params` and `headers` arguments in the `requests.get()` method allow you to pass the parameters and headers defined earlier.
-
-```python
-import requests
-
-response = requests.get(base_url, params=params, headers=headers)
-```
-
-### 5. Checking the Response and Handling Data
-After making the request, check the response status and handle the data accordingly.
-
-```python
-if response.status_code == 200:
-    # The request was successful; handle the data
-    data = response.json()  # Parse JSON response
-    print(data)
-else:
-    # Handle errors (e.g., display a message or log the error)
-    print(f"Request failed with status code: {response.status_code}")
-```
-
-### Example Use Case
 This structured approach is particularly useful in scenarios where you might need to modify only one aspect of the request, such as changing a parameter or adding an authentication token to the headers. It keeps the request flexible and your code clean.
 
 ```python
