@@ -85,8 +85,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 > 
 {: .checklist}
 
-## Swagger Specification and User Interface
-Swagger Specification is a document that describes the entire API, including endpoints, request parameters, response formats, authentication methods, and other metadata. Users can explore and test API endpoints directly through the Swagger User Interface. Let's try interacting with the NCBI Datasets here [ncbi].
+
 
 ## Exercises
 
@@ -112,5 +111,4 @@ Swagger Specification is a document that describes the entire API, including end
 >{: .solution}
 {: .challenge}
 
-[ncbi]: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/rest-api/#get-/genome/accession/-accessions-/download_summary
 
