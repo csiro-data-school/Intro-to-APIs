@@ -19,6 +19,8 @@ Swagger Specification is a document that describes the entire API, including end
 # NCBI 
  Let's try interacting with the NCBI Datasets here [ncbi].
 
+The NCBI Datasets OpenAPI 3.0 spec is available in YAML format, and can be utilized by a variety of open-source tools and other software frameworks to generate client code for interacting with the REST API in a way that is idiomatic for the target language or environment.
+
 
 
 
