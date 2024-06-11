@@ -196,8 +196,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez(https://
 
 
 >## Fetch Sequence Data for a Specific Nucleotide ID
-> Use the Entrez API to fetch the sequence data for a specific nucleotide ID returned by a previous search.
-> - Use one of the IDs returned by your ESearch query, for example, `359465566`.
+> Use the Entrez API to fetch the sequence data for a specific nucleotide ID returned by a previous search. Let's Use one of the IDs returned by the ESearch query, for example, `359465566`.
 >>## Solution
 >>```python
 >>import requests
