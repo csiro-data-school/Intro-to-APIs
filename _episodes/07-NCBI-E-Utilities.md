@@ -194,6 +194,45 @@ The E-utilities are made up of 9 programs that provide access to Entrez(https://
 >{: .solution}
 {: .challenge}
 
+
+>## Fetch Sequence Data for a Specific Nucleotide ID
+> Use the Entrez API to fetch the sequence data for a specific nucleotide ID returned by a previous search.
+> - Use one of the IDs returned by your ESearch query, for example, `359465566`.
+>>## Solution
+>>```python
+>>import requests
+>>import json
+>>
+>># Base URL of the EFetch API endpoint
+>>efetch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+>>
+>># ID to fetch details for (taken from the ESearch result)
+>>nucleotide_id = "359465566"
+>>
+>># Parameters for the EFetch request
+>>params = {
+>>    'db': 'nucleotide',
+>>    'id': nucleotide_id,
+>>    'rettype': 'fasta',
+>>    'retmode': 'text'
+>>}
+>>
+>># Making the GET request
+>>response = requests.get(efetch_url, params=params)
+>>
+>># Checking the response status and handling the data
+>>if response.status_code == 200:
+>>    # Request was successful, process the data
+>>    fasta_data = response.text  # Fetch the response as plain text
+>>    print("FASTA data received from the API:")
+>>    print(fasta_data)
+>>else:
+>>    # Handling request errors
+>>    print(f"Request failed with status code: {response.status_code}")
+>>```
+>{: .solution}
+{: .challenge}
+
 >## Gather Information on the Taxonomy Database
 > Using the Entrez API, write a python program to gather detailed information about the Taxonomy database.
 >>## Solution
