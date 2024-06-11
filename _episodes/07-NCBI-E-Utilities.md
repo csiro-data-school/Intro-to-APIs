@@ -225,6 +225,10 @@ The E-utilities are made up of 9 programs that provide access to Entrez(https://
 >>    fasta_data = response.text  # Fetch the response as plain text
 >>    print("FASTA data received from the API:")
 >>    print(fasta_data)
+>>    # Save the FASTA data to a file
+>>    with open("sequence.fasta", "w") as file:
+>>      file.write(fasta_data)
+>>    print("FASTA data saved to sequence.fasta")
 >>else:
 >>    # Handling request errors
 >>    print(f"Request failed with status code: {response.status_code}")
