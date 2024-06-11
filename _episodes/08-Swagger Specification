@@ -23,7 +23,15 @@ The NCBI Datasets OpenAPI 3.0 spec is available in YAML format, and can be utili
 
 
 
-
+>## Download FASTA File for a Specific Genome Accession
+> Use the NCBI Datasets API to download a FASTA file for the human genome. 
+> - Save the file with the name `genome`
+>>## Solution
+>>endpoint = genome/accession/{accessions}/download
+>>set accessions = GCF_000001405.40
+>>filename = genome
+>{: .solution}
+{: .challenge}
 
 
  [ncbi]: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/rest-api/#get-/genome/accession/-accessions-/download_summary
