@@ -134,9 +134,7 @@ about our API usage&mdash;our rate limit is 40 requests per day, and we have
 
 ## Exercise: Search for Near Earth Objects
 
-> Use the NASA NEO (Near Earth Object) API to search for asteroids. Your task is to:
-> - Find asteroids approaching earth in the next 2 days
->
+> Use the NASA NEO (Near Earth Object) API to search for asteroids. Your task is to:Find asteroids approaching earth in the next 2 days
 >> ### Solution
 >> 1. Construct the API query:
 >> https://api.nasa.gov/neo/rest/v1/feed?start_date=2024-06-12&end_date=2024-06-13&api_key=DEMO_KEY

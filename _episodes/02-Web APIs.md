@@ -87,9 +87,11 @@ In a POST request that submits data (like a form submission), the response body 
 `curl` is a command-line tool used for transferring data to or from a server. It supports multiple protocols including HTTP, HTTPS, FTP, and more, making it a versatile tool for testing and interacting with APIs.
 
 ## Basic `curl` Syntax
-
-  ```bash
+~~~
   curl [options] [URL]
+
+~~~
+{: .bash}
 
 
 To see the request headers along with the response body, we can use `curl -i` followed by the URL we wish to request.
