@@ -26,8 +26,9 @@ The web based search interface for these NCBI databases is available to the publ
 #### Databases included in Entrez
 [You can find a full list of Entrez databases listed here](https://www.ncbi.nlm.nih.gov/books/NBK3837/).
 
+
 #### Entrez Programming Utilities (E-utilities)
-The E-utilities are made up of 9 programs that provide access to Entrez. You can find a list of these 9 programs in the table below. The information shown in this table was taken from [Eric Sayers A General Introduction to the E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/).
+The E-utilities are made up of 9 programs that provide access to Entrez(https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ESummary_). You can find a list of these 9 programs in the table below. The information shown in this table was taken from [Eric Sayers A General Introduction to the E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/).
 
 | E-utilities | Query string (base URL for the API) | Use |
 | ------ | ------ | ------ |
