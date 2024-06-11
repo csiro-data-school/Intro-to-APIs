@@ -131,6 +131,18 @@ title, description, and copyright. The headers also give us some information
 about our API usage&mdash;our rate limit is 40 requests per day, and we have
 39 of these remaining.
 
+
+## Exercise: Search for Near Earth Objects
+
+> Use the NASA NEO (Near Earth Object) API to search for asteroids. Your task is to:
+> - Find asteroids approaching earth in the next 2 days
+>
+>> ### Solution
+>> 1. Construct the API query:
+>> https://api.nasa.gov/neo/rest/v1/feed?start_date=2024-06-12&end_date=2024-06-13&api_key=DEMO_KEY
+>{: .solution}
+{: .challenge}
+
 >## Let’s create a query 
 >Run this query: https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image
 >1. What does the result show?
