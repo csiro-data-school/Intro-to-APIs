@@ -90,7 +90,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 ## Exercises
 
 >## Retrieve PubMed Articles About Cold Urticaria
-> Use the Entrez API to search for articles about "cold urticaria" in PubMed, sorted by publication date.
+> Using the Entrez API, write a python program to search for articles about "cold urticaria" in PubMed, sorted by publication date.
 >>## Solution
 >>```python
 >>import requests
@@ -125,7 +125,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 {: .challenge}
 
 >## Gather Information on the PubMed Database
-> Use the Entrez API to gather detailed information about the PubMed database.
+> Using the Entrez API, write a python program to gather detailed information about the PubMed database.
 >>## Solution
 >>```python
 >>import requests
@@ -159,7 +159,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 
 
 >## Search for Genetic Information About BRCA1
-> Use the Entrez API to search for genetic information about the gene BRCA1 in the Nucleotide database. Limit the results to 10 entries.
+> Using the Entrez API, write a python program to search for genetic information about the gene BRCA1 in the Nucleotide database. Limit the results to 10 entries.
 >>## Solution
 >>```python
 >>import requests
@@ -194,7 +194,7 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 {: .challenge}
 
 >## Gather Information on the Taxonomy Database
-> Use the Entrez API to gather detailed information about the Taxonomy database.
+> Using the Entrez API, write a python program to gather detailed information about the Taxonomy database.
 >>## Solution
 >>```python
 >>import requests
