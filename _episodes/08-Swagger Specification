@@ -12,7 +12,7 @@ keypoints:
 - "Swagger standardizes API documentation and provides interactive tools for exploring and testing API endpoints."
 ---
 
-## Swagger Specification and User Interface
+### Swagger Specification and User Interface
 
 Swagger Specification is a document that describes the entire API, including endpoints, request parameters, response formats, authentication methods, and other metadata. Users can explore and test API endpoints directly through the Swagger User Interface.
 
