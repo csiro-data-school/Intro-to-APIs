@@ -124,33 +124,104 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 >{: .solution}
 {: .challenge}
 
->## Gather statistics on an Entrez database
-> 
-> 1. Identify the E-utility you would use to complete this task.
-> 2. Identify the database you would like to view the statistics for.
-> 3. Write the API call.
->
+>## Gather Information on the PubMed Database
+> Use the Entrez API to gather detailed information about the PubMed database.
 >>## Solution
->>- Here is an example solution:
->>1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed
+>>```python
+>>import requests
+>>import json
+>>
+>># Base URL of the API endpoint
+>>base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi"
+>>
+>># Parameters to be sent with the request
+>>params = {
+>>    'db': 'pubmed',
+>>    'retmode': 'json'
+>>}
+>>
+>># Making the GET request
+>>response = requests.get(base_url, params=params)
+>>
+>># Checking the response status and handling the data
+>>if response.status_code == 200:
+>>    # Request was successful, process the data
+>>    data = response.json()  # Parsing the response as JSON
+>>    print("Data received from the API:")
+>>    json_data = json.dumps(data, indent=4, sort_keys=True)
+>>    print(json_data)
+>>else:
+>>    # Handling request errors
+>>    print(f"Request failed with status code: {response.status_code}")
+>>```
 >{: .solution}
 {: .challenge}
 
 
-> ## Search for genetic information
-> Use an E-utility endpoint to perform a search for genetic information about the gene BRCA1 in the Nucleotide database with results limited to 10 entries
->
->> ## Solution
->> 1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nucleotide&term=BRCA1&retmax=10
-> {: .solution}
+>## Search for Genetic Information About BRCA1
+> Use the Entrez API to search for genetic information about the gene BRCA1 in the Nucleotide database. Limit the results to 10 entries.
+>>## Solution
+>>```python
+>>import requests
+>>import json
+>>
+>># Base URL of the API endpoint
+>>base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+>>
+>># Parameters to be sent with the request
+>>params = {
+>>    'db': 'nucleotide',
+>>    'term': 'BRCA1',
+>>    'retmax': '10',
+>>    'retmode': 'json'
+>>}
+>>
+>># Making the GET request
+>>response = requests.get(base_url, params=params)
+>>
+>># Checking the response status and handling the data
+>>if response.status_code == 200:
+>>    # Request was successful, process the data
+>>    data = response.json()  # Parsing the response as JSON
+>>    print("Data received from the API:")
+>>    json_data = json.dumps(data, indent=4, sort_keys=True)
+>>    print(json_data)
+>>else:
+>>    # Handling request errors
+>>    print(f"Request failed with status code: {response.status_code}")
+>>```
+>{: .solution}
 {: .challenge}
 
-> ## Get database information
-> Write an API query to get detailed information about the taxonomy database in Entrez and return the results in JSON.
->
->> ## Solution
->> 1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=taxonomy&retmode=json
-> {: .solution}
+>## Gather Information on the Taxonomy Database
+> Use the Entrez API to gather detailed information about the Taxonomy database.
+>>## Solution
+>>```python
+>>import requests
+>>import json
+>>
+>># Base URL of the API endpoint
+>>base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi"
+>>
+>># Parameters to be sent with the request
+>>params = {
+>>    'db': 'taxonomy',
+>>    'retmode': 'json'
+>>}
+>>
+>># Making the GET request
+>>response = requests.get(base_url, params=params)
+>>
+>># Checking the response status and handling the data
+>>if response.status_code == 200:
+>>    # Request was successful, process the data
+>>    data = response.json()  # Parsing the response as JSON
+>>    print("Data received from the API:")
+>>    json_data = json.dumps(data, indent=4, sort_keys=True)
+>>    print(json_data)
+>>else:
+>>    # Handling request errors
+>>    print(f"Request failed with status code: {response.status_code}")
+>>```
+>{: .solution}
 {: .challenge}
-
-
