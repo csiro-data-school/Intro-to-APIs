@@ -89,13 +89,38 @@ The E-utilities are made up of 9 programs that provide access to Entrez. You can
 
 ## Exercises
 
->## Find Pubmed articles 
-> Use E-utility ESearch to perform a search about the condition Cold urticaria in PubMed where the results meet the following parameters: 
-> - The results are sorted by publication date
-> - The results contain cold urticaria in the title
->
+>## Retrieve PubMed Articles About Cold Urticaria
+> Use the Entrez API to search for articles about "cold urticaria" in PubMed, sorted by publication date.
 >>## Solution
->>1. https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=cold+urticaria&sort=pub_date
+>>```python
+>>import requests
+>>import json
+>>
+>># Base URL of the API endpoint
+>>base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+>>
+>># Parameters to be sent with the request
+>>params = {
+>>    'db': 'pubmed',
+>>    'term': 'cold urticaria',
+>>    'sort': 'pub_date',
+>>    'retmode': 'json'
+>>}
+>>
+>># Making the GET request
+>>response = requests.get(base_url, params=params)
+>>
+>># Checking the response status and handling the data
+>>if response.status_code == 200:
+>>    # Request was successful, process the data
+>>    data = response.json()  # Parsing the response as JSON
+>>    print("Data received from the API:")
+>>    json_data = json.dumps(data, indent=4, sort_keys=True)
+>>    print(json_data) 
+>>else:
+>>    # Handling request errors
+>>    print(f"Request failed with status code: {response.status_code}")
+>>```
 >{: .solution}
 {: .challenge}
 
