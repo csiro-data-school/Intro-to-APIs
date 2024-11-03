@@ -24,12 +24,8 @@ The format and structure of the response body depend on the type of resource req
 - **XML** – eXtensible Markup Language
 
 
-## Concepts
 
-- **Params** – Parameters
-    - _The variables that specify how your requests are handled_
-       - _Search Parameters_
-- **Key/Value pairs**
+## Key/Value pairs
     - _A unique identifier (key) for a category of data and the actual data (value) for that_
        _category_
 ```
