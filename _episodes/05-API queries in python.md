@@ -16,21 +16,6 @@ keypoints:
 - "Some services offer a demo key for testing with limited functionality."
 ---
 
-
-# Public API Calls (No API Key Required):
-Some APIs/API endpoints, like the NASA Image Search API endpoint, allow users to make requests without an API key. These are often simpler to use and are publicly accessible. For example:
-~~~
-https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1
-~~~
-This URL searches the NASA Image API for images related to “Apollo” with a description of “moon” and limits the result to one image. Anyone can use this without registering for an API key.
-
-# Authenticated API Calls (API Key Required):
-Other APIs/endpoints, such as NASA’s Astronomy Picture of the Day (APOD) API endpoint, require an API key to track usage and ensure fair access. This adds a layer of security and allows the provider to monitor or limit the number of requests. For example:
-~~~
-https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
-~~~
-Here, the api_key parameter is used to pass the user’s unique key. While DEMO_KEY works for limited testing, registered users receive their own key to access more robust usage.
-
 # Making API requests in Python
 ## Essential Libraries
 
