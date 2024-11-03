@@ -54,11 +54,12 @@ is done, NASA provide the API key instantly, and send a copy to the email
 address you provide. 
 
 # Reading API Documentation
+Let's refer to the [NASA API documentation][nasa-api]:
 
-- Look through the params
-    - What types of search parameters are available?
+- Look through the endpoints
+    - What types of parameters are available for the different endpoints?
     - Do they match what you need?
-    - What is the Endpoint (Base URL)?
+    - What is the Base URL?
 - Look for sample requests & responses
     - What kind of data does it return?
     - Is it what you’re looking for?
