@@ -14,10 +14,14 @@ keypoints:
 ---
 
 
-## Fetching data from the web
+# Fetching data from the web
 
 With a [URL query](https://csiro-data-school.github.io/Intro-to-APIs/04-Creating%20URL%20queries/index.html) in hand, the [Unix shell](https://librarycarpentry.org/lc-shell/) provides a powerful command line driven interface for processing and interacting with large amounts of text data.  As the response from many APIs will be in a text-based format, such as JSON or XML, various shell tools will provide us with the functionality  to acquire data and process the response, allowing for easy use of the large existing set of Unix tools.
 
+#  HTTP request and response in bash: Introduction to `curl`
+## What is `curl`?
+
+`curl` is a command-line tool used for transferring data to or from a server. It supports multiple protocols including HTTP, HTTPS, FTP, and more, making it a versatile tool for testing and interacting with APIs.
 
 ## Shell Tools  
 Building on the skill from [Unix shell](https://librarycarpentry.org/lc-shell/) lesson, we add the following command line programs for working with APIs
@@ -28,6 +32,55 @@ Building on the skill from [Unix shell](https://librarycarpentry.org/lc-shell/) 
 
 In this lesson we will use `curl` command for interacting with our API endpoints and either `jq` or `xmlstarlet` to process the return based on the type response that is given by the endpoint.  In both cases we use the Unix shell pipe `|` to redirect the output of the `curl` command into the next for processing.
 The full manual of usage options are available on the command line by entering `man curl`
+
+## Basic `curl` Syntax
+~~~
+  curl [options] [URL]
+
+~~~
+{: .bash}
+
+
+To see the request headers along with the response body, we can use `curl -i` followed by the URL we wish to request.
+
+~~~
+$ curl -i http://carpentries.org
+~~~
+{: .language-bash}
+
+~~~
+HTTP/1.1 301 Moved Permanently
+server: envoy
+date: Fri, 16 Feb 2024 02:58:34 GMT
+content-type: text/html
+content-length: 167
+location: https://carpentries.org/
+x-cache: Redirect from cloudfront
+via: 1.1 50b82c7b764423c87ef333da04c77668.cloudfront.net (CloudFront)
+x-amz-cf-pop: MEL52-P2
+x-amz-cf-id: wD4E6tTNSW3i-Y9OBxEQPvhXRONa0IXspKqOHxzJM_FxUpiCttBRTA==
+x-xss-protection: 1; mode=block
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+content-security-policy: default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'
+x-content-type-options: nosniff
+vary: Origin
+x-envoy-upstream-service-time: 19
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>CloudFront</center>
+</body>
+</html>
+~~~
+{: .output}
+
+Noteworthy here is the first header `content-type: text/html`; this indicates that the response body is an HTML document (also known as a web page). HTML, the HyperText Markup Language, is the language that all web pages are written in; while we won't write any today, we will look a little more at how to read it (and get your code to read it) in a later episode.
+
+Next, we will explore how data is managed and transmitted over the web, which commonly involves sending the data as part of the response body in HTTP transactions.
+
 
 ## Using the `-G` and the `--data-urlencode` option in `curl`
 

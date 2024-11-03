@@ -3,26 +3,42 @@ title: "API queries in python"
 teaching: 15
 exercises: 5
 questions:
-- "What is the difference between authentication and authorization?"
-- "What are API keys?"
-- "How do we obtain an API key?"
+- "What python libraries can we use to make API requests?"
+- "How do we store and access API keys securely?"
+- "How do we use the Python libraries to make an API request?"
 objectives:
-- "Understand the purpose of authentication and authorisation."
-- "Understand the different methods of authentication."
-- "Be able to obtain and use an API key to access data."
+- "Understand the purpose of storing API keys using environmental variables."
+- "Understand requests library in Python."
+- "Understand the json library in Python."
 keypoints:
-- "Authentication ensures that only authorised entities can access the API."
-- "Authorisation ensures they can only access what they're permitted to."
+- "The requests and json libraries in Python are important tools to make API calls."
+- "Environmental variables are a secure way to store and access API keys from."
+- "Some services offer a demo key for testing with limited functionality."
 ---
 
 
-### Essential Libraries
+# Public API Calls (No API Key Required):
+Some APIs/API endpoints, like the NASA Image Search API endpoint, allow users to make requests without an API key. These are often simpler to use and are publicly accessible. For example:
+~~~
+https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1
+~~~
+This URL searches the NASA Image API for images related to “Apollo” with a description of “moon” and limits the result to one image. Anyone can use this without registering for an API key.
+
+# Authenticated API Calls (API Key Required):
+Other APIs/endpoints, such as NASA’s Astronomy Picture of the Day (APOD) API endpoint, require an API key to track usage and ensure fair access. This adds a layer of security and allows the provider to monitor or limit the number of requests. For example:
+~~~
+https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+~~~
+Here, the api_key parameter is used to pass the user’s unique key. While DEMO_KEY works for limited testing, registered users receive their own key to access more robust usage.
+
+# Making API requests in Python
+## Essential Libraries
 
 - **`requests`**:
 The requests library in Python is a popular and user-friendly HTTP library that simplifies the process of making HTTP requests. It abstracts away much of the complexity involved in sending HTTP requests and handling responses.
 The requests.get function is used to send a GET request to a specified URL.
 
-#### Example of an HTTP request
+### Example of an HTTP request
 Let's make the same request we observed in shell
 ```python
 import requests
@@ -45,6 +61,44 @@ else:
 
 ```
 
+- **`json`**:
+One of the primary uses of the `json` module is to parse JSON data received from an API into Python dictionaries, allowing for easy access and manipulation of the data within a Python program. JSON is easy for humans to read and write and easy for machines to parse and generate.
+
+- `json.loads()`: This function is used to parse a JSON string, converting it into a Python dictionary. `loads` stands for "load string."
+
+- `json.dumps()`: The `json.dumps()` function provides parameters like `indent` and `sort_keys` to format the JSON output, making it more readable. This function takes a Python object (like a dictionary) and returns a JSON string.
+
+#### Example of Parsing and Formatting JSON:
+
+```python
+import requests
+import json
+
+# URL you want to make the request to
+url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
+
+# Making the GET request
+response = requests.get(url)
+
+# Checking if the request was successful
+if response.status_code == 200:
+    # The request was successful; you can now process the response
+    print("Request successful!")
+    # Printing the content of the response; assuming it's text-based like HTML or JSON
+    print(response.text)
+else:
+    # The request failed
+    print(f"Request failed with status code: {response.status_code}")
+
+data_dict = json.loads(response.text)
+print(data_dict) 
+
+json_data = json.dumps(data_dict,indent=4, sort_keys=True)
+
+print(json_data) 
+```
+
+### Structuring the HTTP request in Python
  To structure the HTTP request in a more organized way, especially for complex APIs, you can break down the request into components such as URL, parameters, and headers. This approach enhances readability and maintainability, particularly when dealing with APIs that require authentication, accept various parameters, or depend on specific header values.
 
 This structured approach is particularly useful in scenarios where you might need to modify only one aspect of the request, such as changing a parameter or adding an authentication token to the headers. It keeps the request flexible and your code clean.
@@ -83,73 +137,9 @@ else:
     print(f"Request failed with status code: {response.status_code}")
 ```
 
-- **`json`**:
-One of the primary uses of the `json` module is to parse JSON data received from an API into Python dictionaries, allowing for easy access and manipulation of the data within a Python program. JSON is easy for humans to read and write and easy for machines to parse and generate.
 
-- `json.loads()`: This function is used to parse a JSON string, converting it into a Python dictionary. `loads` stands for "load string."
-
-#### Example of Parsing JSON:
-
-```python
-import requests
-import json
-
-# URL you want to make the request to
-url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
-
-# Making the GET request
-response = requests.get(url)
-
-# Checking if the request was successful
-if response.status_code == 200:
-    # The request was successful; you can now process the response
-    print("Request successful!")
-    # Printing the content of the response; assuming it's text-based like HTML or JSON
-    print(response.text)
-else:
-    # The request failed
-    print(f"Request failed with status code: {response.status_code}")
-
-data_dict = json.loads(response.text)
-print(data_dict) 
-```
-
-### Formatting the Output
-
-- **`json.dumps`**:
-The `json.dumps()` function provides parameters like `indent` and `sort_keys` to format the JSON output, making it more readable. This function takes a Python object (like a dictionary) and returns a JSON string.
-
-
-#### Example of Converting to JSON:
-
-```python
-import requests
-import json
-
-# URL you want to make the request to
-url = "https://images-api.nasa.gov/search?q=apollo&description=moon&media_type=image&page_size=1"
-
-# Making the GET request
-response = requests.get(url)
-
-# Checking if the request was successful
-if response.status_code == 200:
-    # The request was successful; you can now process the response
-    print("Request successful!")
-    # Printing the content of the response; assuming it's text-based like HTML or JSON
-    print(response.text)
-else:
-    # The request failed
-    print(f"Request failed with status code: {response.status_code}")
-
-data_dict = json.loads(response.text)
-print(data_dict) 
-
-json_data = json.dumps(data_dict,indent=4, sort_keys=True)
-
-print(json_data) 
-```
-## API keys
+# Making API requests that require an API key
+## Storing API keys
 
 Using environment variables to store API keys is a safer alternative that keeps sensitive information like API keys out of your source code, making your application more secure. 
 
@@ -177,7 +167,7 @@ First, you'll need to set the environment variable in your operating system.
 
 3. After adding the line, run `source ~/.bashrc`, `source ~/.zshrc`, or `source ~/.profile` to reload the configuration and apply the changes.
 
-### Step 2: Accessing the Environment Variable in Python
+### Accessing the Environment Variable in Python
 
 Now, in your Python script, use the `os` module to access the environment variable:
 
@@ -201,13 +191,23 @@ response = requests.get(endpoint, params=params, headers=headers)
 print(response.json())
 ```
 
+# Handling Environment Variables in Kubeflow
+The Kubeflow environment behaves differently from typical terminal environments on Windows, Mac, or Linux machines. While it does offer a bash terminal option, setting and accessing environment variables can be more complex. This can be an issue, especially when trying to securely manage sensitive information like API keys.
+
+To avoid hardcoding your API key in your scripts, you can use Python’s getpass module to securely input it at runtime. Here’s an example:
+```python
+import getpass
+api_key = getpass.getpass(prompt="Enter your API key: ")
+```
+This approach prompts the user for their API key and stores it in the api_key variable without displaying it on the screen, enhancing security and flexibility.
+
 >## Let’s retrieve some photos of Mars!
 > Use the NASA API to retrieve pictures from the curiosity rover in Mars
 >>## Solution
 >>```python
 >>import requests
->>
->>api_key = "DEMO_KEY"
+>># Remove the line below if you are storing your API key as an environment variable or using the getpass method.
+>>api_key = "DEMO_KEY" api_key = "DEMO_KEY"
 >># The Martian solar day (sol) you're interested in
 >>sol = "1000"
 >>

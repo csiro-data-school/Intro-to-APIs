@@ -3,45 +3,25 @@ title: "Creating URL Queries"
 teaching:  20
 exercises: 20
 questions:
+- "What are API keys? How do we obtain an API key?"
 - "What are URL query strings?"
-- "How can you make API requests?"
 - "How do you interpret API documentation?"
+- "How can you create an API query?"
+
 objectives:
 - "Explain URL query strings"
 - "Explain how to create API queries"
 - "Explain how to read and interpret API documentation"
 keypoints:
+- "Authentication ensures that only authorised entities can access the API."
+- "Authorisation ensures they can only access what they're permitted to."
 - "REST APIs use query stings to make requests"
-- "URL queries are found all across the web"
 ---
 
-
-### URL query String: Youtube
-
- **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
-![youtube URL](../assets/img/youtubeAPI.png)
-
-## Constructing API Queries
+# Constructing API Queries
 To construct an API query or request, you typically use a combination of endpoints, resources, parameters, and headers, which can be obtained from an APIs documentation. NASA offers an API that exposes much of the data that they make public. In this lesson, we will look at the NASA API portal, `https://api.nasa.gov/`, which makes NASA data, including imagery, eminently accessible to application developers.
 
-
-### Reading API Documentation
-
-- Look through the params
-    - What types of search parameters are available?
-    - Do they match what you need?
-    - What is the Endpoint (Base URL)?
-- Look for sample requests & responses
-    - What kind of data does it return?
-    - Is it what you’re looking for?
-- Look for restrictions
-    - Is it free?
-    - Does it require a key or permissions?
-    - Do they impose a limit?
-
-
-
-## Authentication and identification
+# Authentication and identification
 
 Many web APIs restrict access to registered users or applications. This may be
 because they are used to control things that are specific to a particular user
@@ -65,6 +45,29 @@ For the vast majority of APIs, there will exist good developer documentation tha
 how to use the token or other identifier that they provide to connect to their
 service, including examples.
 
+### NASA API - Example of using an API key
+To use the NASA API, you need an API key to identify yourself, but no additional authentication is required beyond this.
+
+Let's try working with the NASA API now. To do this, first we need to generate
+our API key by providing our details at [the API home page][nasa-api]. Once that
+is done, NASA provide the API key instantly, and send a copy to the email
+address you provide. 
+
+# Reading API Documentation
+
+- Look through the params
+    - What types of search parameters are available?
+    - Do they match what you need?
+    - What is the Endpoint (Base URL)?
+- Look for sample requests & responses
+    - What kind of data does it return?
+    - Is it what you’re looking for?
+- Look for restrictions
+    - Is it free?
+    - Does it require a key or permissions?
+    - Do they impose a limit?
+
+# Components of an API query
 Let's analyse this query from the NASA API:
 `https://api.nasa.gov/mars-photos/api/v1/rovers/{roverName}/photos?camera=FHAZ&sol=1000&api_key=DEMO_KEY`
 
@@ -82,54 +85,32 @@ Using this endpoint, you can retrieve photos captured by a specified Mars rover.
   - **Path Parameters**: Parts of the endpoint URL itself that specify a specific resource or subset of resources. Using the  example, `{roverName}` in `/rovers/{roverName}` is a path parameter.
   - **Query Parameters**: Added to the end of the endpoint URL, usually after a `?`, to filter the results. For example, `/photos?camera=FHAZ` returns the photos taken by the Front Hazard Avoidance Camera	(FHAC) of the rover.
 
-## NASA API - Example of using an API key
-To use the NASA API, you need an API key to identify yourself, but no additional authentication is required beyond this.
-
-Let's try working with the NASA API now. To do this, first we need to generate
-our API key by providing our details at [the API home page][nasa-api]. Once that
-is done, NASA provide the API key instantly, and send a copy to the email
-address you provide. 
-
+## Creating an API query using the NASA API
 
 Let's construct an API query to try, querying the Astronomy Picture of the Day (APOD).
 The first step is to read and understand the API documentation. They also provide example queries in which you can see that NASA
 expects the API key to be encoded as a query parameter.
 
 ~~~
-$ curl -i "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
+https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 ~~~
-{: .language-bash}
 
 ~~~
-HTTP/2 200 
-date: Thu, 08 Feb 2024 02:39:35 GMT
-content-type: application/json
-content-length: 1265
-vary: Accept-Encoding
-access-control-allow-origin: *
-access-control-expose-headers: X-RateLimit-Limit, X-RateLimit-Remaining
-age: 1
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-vary: Accept-Encoding
-via: https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
-x-api-umbrella-request-id: cdgqarbvpj8g36vie310
-x-cache: MISS
-x-ratelimit-limit: 40
-x-ratelimit-remaining: 39
-x-vcap-request-id: 029df11c-5e1d-4b6b-6389-b62bf72c9566
-x-frame-options: DENY
-x-content-type-options: nosniff
-x-xss-protection: 1; mode=block
-
-{"copyright":"\nKent E. Biggs\n","date":"2024-02-07","explanation":"Are these two galaxies really attracted to each other? Yes, gravitationally, and the result appears as an enormous iconic heart -- at least for now. Pictured is the pair of galaxies cataloged as NGC 4038 and NGC 4039,known as the Antennae Galaxies.  Because they are only 60 million light years away, close by intergalactic standards, the pair is one of the best studied interacting galaxies on the night sky. Their strong attraction began about a billion years ago when they passed unusually close to each other.  As the two galaxies interact, their stars rarely collide, but new stars are formed when their interstellar gases crash together.  Some new stars have already formed, for example, in the long antennae seen extending out from the sides of the dancing duo. By the time the galaxy merger is complete, likely over a billion years from now, billions of new stars may have formed.   Open Science: Browse 3,300+ codes in the Astrophysics Source Code Library","hdurl":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_3840.jpg","media_type":"image","service_version":"v1","title":"The Heart Shaped Antennae Galaxies","url":"https://apod.nasa.gov/apod/image/2402/Antennae_Biggs_960.jpg"}
+{
+  "date": "2024-11-03",
+  "explanation": "What's that black spot on Jupiter? No one is sure.  During one pass of NASA's Juno over  Jupiter, the robotic spacecraft imaged an usually dark cloud feature informally dubbed the Abyss. Surrounding cloud patterns show the Abyss to be at the center of a vortex. Since dark features on Jupiter's atmosphere tend to run deeper than light features, the Abyss may really be the deep hole that it appears -- but without more evidence that remains conjecture.  The Abyss is surrounded by a complex of meandering clouds and other swirling storm systems, some of which are topped by light colored, high-altitude clouds.  The featured image was captured in 2019 while Juno passed only about 15,000 kilometers above Jupiter's cloud tops.  The next close pass of Juno near Jupiter will be in about three weeks.",
+  "hdurl": "https://apod.nasa.gov/apod/image/2411/JupiterAbyss_JunoEichstadt_1080.jpg",
+  "media_type": "image",
+  "service_version": "v1",
+  "title": "Jupiter Abyss",
+  "url": "https://apod.nasa.gov/apod/image/2411/JupiterAbyss_JunoEichstadt_1080.jpg"
+}
 ~~~
 {: .output}
 
 We can see that this API gives us JSON output including links to two versions
 of the picture of the day, and then metadata about the picture including its
-title, description, and copyright. The headers also give us some information
-about our API usage&mdash;our rate limit is 40 requests per day, and we have
-39 of these remaining.
+title and description.
 
 
 >## Exercise: Search for Near Earth Objects
