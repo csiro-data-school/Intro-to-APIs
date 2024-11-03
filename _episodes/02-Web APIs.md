@@ -44,13 +44,14 @@ A URL (also sometimes known as a URI or Uniform Resource Indicator) is the compl
 
 
 ## URL query String
-A query string is part of a URL that contains data to be sent to the server for filtering or requesting specific information. It starts after the ? character and consists of key-value pairs separated by &. For example:
+A query string is part of a URL that contains data to be sent to the server for filtering or requesting specific information. It starts after the `?` character and consists of key-value pairs separated by `&`. For example:
 
  **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
 ![youtube URL](../assets/img/youtubeAPI.png)
 
-v=s7wmiS2mSXY tells YouTube which video to display.
-t=1m45s specifies the timestamp at which the video should start (1 minute and 45 seconds in).
+- Key-value pairs:
+  - `v=s7wmiS2mSXY` tells YouTube which video to display.
+  - `t=1m45s` specifies the timestamp at which the video should start (1 minute and 45 seconds in).
 
 ## Protocols, HTTP & HTTPS
 
