@@ -40,7 +40,17 @@ At its core, the initial World Wide Web concept brought together three key ideas
 
 ## URLs
 
-A URL (also sometimes known as a URI or Uniform Resource Indicator) consists of two or three parts: the protocol followed by ://, the server name or IP address and optionally the path to the resource we wish to access. For example the URL http://carpentries.org means we want to access the default location on the server carpentries.org using the HTTP protocol. The URL https://carpentries.org/contact/ means we want to access the contact location on the carpentries.org server using the secure HTTPS protocol.
+A URL (also sometimes known as a URI or Uniform Resource Indicator) is the complete web address used to access a specific resource on the internet. It indicates the protocol (e.g., https), domain name, and sometimes the path to a specific resource. It consists of two or three parts: the protocol followed by ://, the server name or IP address and optionally the path to the resource we wish to access. For example the URL http://carpentries.org means we want to access the default location on the server carpentries.org using the HTTP protocol. The URL https://carpentries.org/contact/ means we want to access the contact location on the carpentries.org server using the secure HTTPS protocol.
+
+
+## URL query String
+A query string is part of a URL that contains data to be sent to the server for filtering or requesting specific information. It starts after the ? character and consists of key-value pairs separated by &. For example:
+
+ **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
+![youtube URL](../assets/img/youtubeAPI.png)
+
+v=s7wmiS2mSXY tells YouTube which video to display.
+t=1m45s specifies the timestamp at which the video should start (1 minute and 45 seconds in).
 
 ## Protocols, HTTP & HTTPS
 

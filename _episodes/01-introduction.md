@@ -33,12 +33,6 @@ APIs provide incredible amounts of structured data, as well as the ability to co
 
 ![Illustration of APIs as a Barista](../assets/img/HowAPIWorks.png)
 
-
-## Example URL query String: Youtube
-
- **[https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s](https://www.youtube.com/watch?v=s7wmiS2mSXY&t=1m45s)**
-![youtube URL](../assets/img/youtubeAPI.png)
-
 ## Python Libraries as APIs
 You might already be familiar with the concept of APIs from using Python. For instance, instead of writing out the formula to calculate a mean, you can simply use math.mean(). This approach saves time and simplifies your code. APIs abstract away complexity, allowing you to focus on higher-level problem-solving.
 
