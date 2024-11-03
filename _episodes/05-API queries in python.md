@@ -191,8 +191,15 @@ This approach prompts the user for their API key and stores it in the api_key va
 >>## Solution
 >>```python
 >>import requests
->># Remove the line below if you are storing your API key as an environment variable or using the getpass method.
->>api_key = "DEMO_KEY" api_key = "DEMO_KEY"
+>>
+>># Uncomment the line below if you want to use the default DEMO_KEY
+>>api_key = "DEMO_KEY"
+>>
+>># Uncomment the line below if you are storing your API key as an environment variable. Remember to add 'import os' in the code
+>>#api_key = os.getenv("NASA_API_KEY")
+>>
+>># The API key is stored in api_key if you have used the getpass method
+>>
 >># The Martian solar day (sol) you're interested in
 >>sol = "1000"
 >>
