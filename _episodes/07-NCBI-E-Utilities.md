@@ -30,7 +30,7 @@ The web based search interface for these NCBI databases is available to the publ
 #### Entrez Programming Utilities (E-utilities)
 The E-utilities are made up of 9 programs that provide access to Entrez(https://www.ncbi.nlm.nih.gov/books/NBK25499/#_chapter4_ESummary_). You can find a list of these 9 programs in the table below. The information shown in this table was taken from [Eric Sayers A General Introduction to the E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/).
 
-| E-utilities | Query string (base URL for the API) | Use |
+| E-utilities | Query string (base URL for the [API](https://www.ncbi.nlm.nih.gov/books/NBK25499/)) | Use |
 | ------ | ------ | ------ |
 | EInfo | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi | Provides the number of records indexed in each field of a given database, the date of the last update of the database, and the available links from the database to other Entrez databases. |
 | ESearch | https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi | Responds to a text query with the list of matching UIDs in a given database (for later use in ESummary, EFetch or ELink), along with the term translations of the query. |
