@@ -231,8 +231,8 @@ This approach prompts the user for their API key and stores it in the api_key va
 >{: .solution}
 {: .challenge}
 
->## Let’s retrieve some information on asteroids
-> Use the NASA API to check which potentially hazardous asteroids are approaching Earth in March 2024
+>## Let’s retrieve some information on asteroids {#challenge-exercise}
+> Use the [NASA API](https://api.nasa.gov) to check which potentially hazardous asteroids are approaching Earth in March 2024
 >>## Solution
 >>```python
 >>import requests
